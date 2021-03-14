@@ -11,8 +11,6 @@ class TextEncryptor {
 
   static _encrypt(str, key, decrypt = false) {
     const chCodeOffset = 42;
-    const minChCode = 0;
-    const maxChCode = 7423;
 
     let codes = [];
 
@@ -24,14 +22,6 @@ class TextEncryptor {
         chCode -= keyChCode - chCodeOffset;
       } else {
         chCode += keyChCode - chCodeOffset;
-      }
-
-      if (chCode < minChCode) {
-        chCode += chCodeOffset;
-      }
-
-      if (chCode > maxChCode) {
-        chCode -= chCodeOffset;
       }
 
       codes.push(chCode);
