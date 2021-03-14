@@ -22,10 +22,8 @@ class TextEncryptor {
         j = 0;
       }
 
-      const keyChCode = key.charCodeAt(j);
-
       let chCode = str.charCodeAt(i);
-
+      const keyChCode = key.charCodeAt(j);
       j++;
 
       if (decrypt) {
