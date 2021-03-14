@@ -1,18 +1,18 @@
 "use strict";
 
 class TextEncryptor {
-  static encryptText(str, key) {
+  static encrypt(str, key) {
     return this._encrypt(str, key);
   }
 
-  static decryptText(str, key) {
+  static decrypt(str, key) {
     return this._encrypt(str, key, true);
   }
 
   static _encrypt(str, key, decrypt = false) {
-    const chCodeOffset = 96;
-    const minChCode = 32;
-    const maxChCode = 126;
+    const chCodeOffset = 42;
+    const minChCode = 0;
+    const maxChCode = 7423;
 
     let codes = [];
 
@@ -27,11 +27,11 @@ class TextEncryptor {
       }
 
       if (chCode < minChCode) {
-        chCode += chCodeOffset - 1;
+        chCode += chCodeOffset;
       }
 
       if (chCode > maxChCode) {
-        chCode -= chCodeOffset - 1;
+        chCode -= chCodeOffset;
       }
 
       codes.push(chCode);
