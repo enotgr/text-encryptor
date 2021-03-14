@@ -17,8 +17,7 @@ class TextEncryptor {
     let codes = [];
 
     for (let i = 0; i < str.length; i++) {
-      const j = i % key.length;
-      const keyChCode = key.charCodeAt(j);
+      const keyChCode = key.charCodeAt(i % key.length);
       let chCode = str.charCodeAt(i);
 
       if (decrypt) {
