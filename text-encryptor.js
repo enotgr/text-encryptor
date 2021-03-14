@@ -15,16 +15,11 @@ class TextEncryptor {
     const maxChCode = 126;
 
     let codes = [];
-    let j = 0;
 
     for (let i = 0; i < str.length; i++) {
-      if (j >= key.length) {
-        j = 0;
-      }
-
-      let chCode = str.charCodeAt(i);
+      const j = i % key.length;
       const keyChCode = key.charCodeAt(j);
-      j++;
+      let chCode = str.charCodeAt(i);
 
       if (decrypt) {
         chCode -= keyChCode - chCodeOffset;
@@ -42,6 +37,7 @@ class TextEncryptor {
 
       codes.push(chCode);
     }
+
     return String.fromCharCode(...codes);
   }
 }
